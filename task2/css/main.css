@@ -1,0 +1,77 @@
+html,
+body,
+.wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+}
+
+main {
+    max-width: 1080px;
+    width: auto;
+    margin: 0 auto;
+    padding: 16px 32px;
+}
+
+.header .title {
+    font-size: 32pt;
+    font-weight: 600;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.section {
+    margin-top: 24px;
+    padding: 8px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.section .title {
+    font-size: 18pt;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.button {
+    background: #fcfcfc;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.button:active,
+.button:focus,
+.button:hover {
+    background: #f0f0f0;
+    border-color: #bbb;
+}
+
+.button-submit {
+    background: #ffc900;
+    border-color: #f5c000;
+}
+
+.button-submit:active,
+.button-submit:focus,
+.button-submit:hover {
+    background: #f5c000;
+    border-color: #e0b000;
+}
