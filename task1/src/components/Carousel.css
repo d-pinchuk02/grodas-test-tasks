@@ -61,8 +61,8 @@
 
 .carousel-grid {
     display: grid;
-    grid-template-columns: repeat(3, 240px);
-    grid-template-rows: repeat(2, 240px);
+    grid-template-columns: 1fr 240px 240px;
+    grid-template-rows: 1fr 240px;
     gap: 40px;
     max-height: 520px;
     overflow: hidden;
@@ -75,7 +75,7 @@
 
 @media screen and (max-width: 680px) {
     .carousel-grid {
-        grid-template-columns: repeat(2, 240px);
+        grid-template-columns: 1fr 1fr;
         max-height: fit-content;
         overflow: auto;
     }
@@ -97,7 +97,7 @@
     }
 
     .carousel-grid {
-        grid-template-columns: repeat(1, 240px);
+        grid-template-columns: 1fr;
         max-height: fit-content;
         overflow: auto;
         gap: 20px;
