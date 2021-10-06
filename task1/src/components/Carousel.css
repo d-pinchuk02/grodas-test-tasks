@@ -1,0 +1,110 @@
+.carousel {
+    width: 100%;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.carousel-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 60px;
+    width: 60px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.13);
+    color: #616161;
+}
+
+.carousel-button-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: #bdbdbd;
+    fill: #bdbdbd;
+}
+
+.carousel-button:hover .carousel-button-icon {
+    color: #616161;
+    fill: #616161;
+}
+
+.carousel-button-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.carousel-content {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    grid-template-rows: repeat(2, 240px);
+    gap: 40px;
+    max-height: 520px;
+    overflow: hidden;
+}
+
+.carousel-grid > div:first-child {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+@media screen and (max-width: 680px) {
+    .carousel-grid {
+        grid-template-columns: repeat(2, 240px);
+        max-height: fit-content;
+        overflow: auto;
+    }
+
+    .carousel-container {
+        padding: 0 60px;
+    }
+
+    .carousel-button {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .carousel-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .carousel-grid {
+        grid-template-columns: repeat(1, 240px);
+        max-height: fit-content;
+        overflow: auto;
+        gap: 20px;
+    }
+
+    .carousel-grid > div:first-child {
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
