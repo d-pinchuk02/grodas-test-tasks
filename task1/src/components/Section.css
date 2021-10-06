@@ -31,3 +31,38 @@
     height: 100%;
     padding-top: 35px;
 }
+
+@media screen and (max-width: 680px) {
+    .section-container {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .section-title {
+        text-align: center;
+        padding-top: 56px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .section-title.full-width {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .section-title {
+        font-size: 24px;
+        padding-top: 36px;
+    }
+
+    .section-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section-content {
+        padding-top: 18px;
+    }
+}
