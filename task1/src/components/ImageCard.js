@@ -39,7 +39,7 @@ function ImageCard(props) {
                         {props.title}
                     </a>
                     <ul className="image-card-tags">
-                        {props.tags.map((tag, key) => (
+                        {(props.tags || []).map((tag, key) => (
                             <li className="image-card-tag-item" key={key}>
                                 <a
                                     className="image-card-tag"
@@ -96,7 +96,7 @@ function ImageCard(props) {
                     {props.title}
                 </a>
                 <ul className="image-card-tags outset">
-                    {props.tags.map((tag, key) => (
+                    {(props.tags || []).map((tag, key) => (
                         <li className="image-card-tag-item outset" key={key}>
                             <a
                                 className="image-card-tag outset"
