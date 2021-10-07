@@ -1,0 +1,22 @@
+{
+  "name": "deploy",
+  "version": "1.0.0",
+  "description": "Тестовое задание на позицию Front-end в компанию Grodas.",
+  "private": true,
+  "scripts": {
+    "prodbuild": "rimraf build && node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-pinchuk02/grodas-test-tasks.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d-pinchuk02/grodas-test-tasks/issues"
+  },
+  "homepage": "https://github.com/d-pinchuk02/grodas-test-tasks#readme",
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
