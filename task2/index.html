@@ -4,15 +4,16 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./css/reset.css" />
-        <link rel="stylesheet" href="./css/main.css" />
         <title>Завдання №2</title>
     </head>
     <body>
         <div class="wrapper">
             <main class="main">
                 <header class="header">
-                    <h1 class="title page-title">Завдання №2</h1>
+                    <h1 class="title page-title">
+                        Завдання №2. Відкрийте вікно консолі для отримання
+                        докладних даних
+                    </h1>
                 </header>
                 <section class="section">
                     <h2 class="title">
@@ -25,7 +26,7 @@
                 <section class="section">
                     <h2 class="title">Теги, згруповані за назвою тегу</h2>
                     <div class="content">
-                        <p class="js-tags-by-name"></p>
+                        <pre class="js-tags-by-name"></pre>
                     </div>
                 </section>
                 <section class="section">
@@ -33,11 +34,98 @@
                         Теги, згруповані за кількістю символів у назві тегу
                     </h2>
                     <div class="content">
-                        <p class="js-tags-by-symbols"></p>
+                        <pre class="js-tags-by-symbols"></pre>
                     </div>
                 </section>
             </main>
         </div>
-        <script type="text/javascript" src="./js/main.js"></script>
+        <script type="text/javascript">
+            let elements = [];
+            let tagsByName = {};
+            let tagsByNameText = "";
+            let tagsBySymbols = {};
+            let tagsBySymbolsText = "";
+
+            function getChildren(parent) {
+                Array.from(parent.children).forEach((element) => {
+                    elements.push(element);
+                    tagsByName[element.tagName] = {
+                        name: "",
+                        count: 0,
+                        elements: [],
+                    };
+                    tagsBySymbols[element.tagName.length] = {
+                        count: 0,
+                        symbols: 0,
+                        elements: [],
+                    };
+                    getChildren(element);
+                });
+            }
+
+            function groupTagsByName() {
+                Array.from(elements).forEach((element) => {
+                    let name = element.tagName;
+
+                    tagsByName[name].name = name;
+                    tagsByName[name].elements.push(element);
+                    tagsByName[name].count++;
+
+                    tagsByNameText += `${name} - ${tagsByName[name].count} елементів\n`;
+                });
+            }
+
+            function groupTagsBySymbols() {
+                Array.from(elements).forEach((element) => {
+                    let name = element.tagName;
+                    let symbols = name.length;
+
+                    tagsBySymbols[symbols].elements.push(element);
+                    tagsBySymbols[symbols].count++;
+                    tagsBySymbols[symbols].symbols = symbols;
+
+                    tagsBySymbolsText += `${symbols} символів - ${tagsBySymbols[symbols].count} елементів\n`;
+                });
+            }
+
+            function formatTagsByName(tags = tagsByName) {
+                let result = "";
+                Array.from(Object.keys(tags)).forEach((key) => {
+                    let tag = tags[key];
+                    result += `${tag.name}, ${tag.count} елем.\n`;
+                });
+                return result;
+            }
+
+            function formatTagsBySymbols(tags = tagsBySymbols) {
+                let result = "";
+                Array.from(Object.keys(tags)).forEach((key) => {
+                    let tag = tags[key];
+                    let elements = "";
+
+                    Array.from(tag.elements).forEach((element) => {
+                        elements += `${element.tagName}, `;
+                    });
+
+                    result += `${tag.symbols} симв., ${tag.count} елем., [${elements}]\n`;
+                });
+                return result;
+            }
+
+            getChildren(document);
+            groupTagsByName();
+            groupTagsBySymbols();
+
+            console.log("Загальна кількість тегів:", elements.length);
+            console.log("Теги за назвою:", tagsByName);
+            console.log("Теги за кількістю символів", tagsBySymbols);
+
+            document.querySelector(".js-total-count").textContent =
+                elements.length;
+            document.querySelector(".js-tags-by-name").textContent =
+                formatTagsByName();
+            document.querySelector(".js-tags-by-symbols").textContent =
+                formatTagsBySymbols();
+        </script>
     </body>
 </html>

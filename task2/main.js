@@ -47,5 +47,3 @@ groupTagsBySymbols();
 console.log("Загальна кількість тегів:", elements.length);
 console.log("Теги за назвою:", tagsByName);
 console.log("Теги за кількістю символів", tagsBySymbols);
-
-document.querySelector(".js-total-count").textContent = elements.length;
