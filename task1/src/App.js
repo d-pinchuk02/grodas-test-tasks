@@ -11,7 +11,6 @@ function App() {
     // Измените этот адрес на нужный адрес API
     const apiUrl = "http://localhost:8003/data.json";
 
-    const [apiResponse, setApiResponse] = useState([]);
     const [featuredImages, setFeaturedImages] = useState([]);
     const [lastImages, setLastImages] = useState([]);
 
@@ -56,7 +55,6 @@ function App() {
                 let images = response;
                 if (response.length === 0) images = exampleData;
 
-                setApiResponse(images);
                 updateImages(images);
             }
         });

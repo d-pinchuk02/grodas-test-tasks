@@ -21,7 +21,7 @@ function Carousel(props) {
                             <ImageCard
                                 {...image}
                                 key={key}
-                                shadow={key == 0 ? "short" : "long"}
+                                shadow={key === 0 ? "short" : "long"}
                                 inset
                             />
                         ))}

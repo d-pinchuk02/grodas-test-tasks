@@ -52,7 +52,12 @@ function ImageCard(props) {
                     </ul>
                 </div>
                 <div className={`image-card-shadow ${props.shadow}`}>
-                    <a className="image-card-image-link" href={props.url}></a>
+                    <a
+                        className="image-card-image-link"
+                        href={props.url || "#"}
+                    >
+                        {" "}
+                    </a>
                 </div>
             </div>
             <img
@@ -81,7 +86,12 @@ function ImageCard(props) {
                     ></button>
                 </div>
                 <div className={`image-card-shadow ${props.shadow}`}>
-                    <a className="image-card-image-link" href={props.url}></a>
+                    <a
+                        className="image-card-image-link"
+                        href={props.url || "#"}
+                    >
+                        {" "}
+                    </a>
                 </div>
             </div>
             <img
